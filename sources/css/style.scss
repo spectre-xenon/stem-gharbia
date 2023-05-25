@@ -1,0 +1,354 @@
+/*
+  @license Copyright 2020, OmarZaghlool. All rights reserved.
+*/
+
+$mainfont: "Titillium Web", sans-serif;
+$darkmode-background: #161616;
+$twhite: #ffffffd8;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: $darkmode-background;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: white;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $twhite;
+}
+
+body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transition: 0.2s;
+  overflow: hidden;
+  animation: scroll 1s ease 3.5s forwards;
+  .navbar {
+    transition: 0.2s;
+  }
+}
+
+/*intro text start*/
+.intro-text-cont {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+
+  background: #28253c;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: end 1s ease 3.5s forwards;
+  z-index: 1001;
+
+  svg {
+    width: 80%;
+  }
+}
+
+@keyframes line-anim {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fill {
+  from {
+    fill: transparent;
+  }
+  to {
+    fill: #c4c4c4;
+  }
+}
+
+@keyframes end {
+  from {
+    opacity: 1;
+    display: block;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes scroll {
+  from {
+    overflow: hidden;
+  }
+  to {
+    overflow: unset;
+  }
+}
+/*intro text end*/
+
+/*navbar start*/
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10vh;
+  padding-left: 13px;
+  padding-right: 13px;
+  background-color: $twhite;
+  backdrop-filter: blur(15px);
+  box-shadow: 0px 4px 5px #17171733;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 900;
+
+  #logo {
+    width: 55px;
+  }
+
+  #headline {
+    font-size: 2rem;
+    font-family: $mainfont;
+    font-weight: 500;
+  }
+
+  #menu {
+    cursor: pointer;
+    width: 42px;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/*navbar side menu*/
+.nav {
+  position: fixed;
+  top: 10%;
+  left: 0%;
+  height: 90vh;
+  width: 100%;
+  z-index: 899;
+  display: none;
+
+  #content {
+    position: absolute;
+    left: 100%;
+    width: 40%;
+    height: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+
+    background-color: $twhite;
+    transition: background 0.2s;
+    backdrop-filter: blur(15px);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-links-cont {
+      width: 40%;
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .nav-links {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+
+      a {
+        width: 50%;
+        text-decoration: none;
+        text-align: center;
+        color: black;
+        font-family: $mainfont;
+        font-size: 32px;
+
+        &:focus {
+          color: #0000006c;
+        }
+      }
+
+      #focused-link {
+        color: #0000006c;
+      }
+    }
+  }
+
+  #blur {
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.01);
+    display: block;
+  }
+}
+/*navbar end*/
+
+/*theme switcher*/
+#theme-switch {
+  cursor: pointer;
+  position: fixed;
+  bottom: 3.5vh;
+  left: 15px;
+  width: 2.8%;
+  -webkit-tap-highlight-color: transparent;
+  z-index: 1000;
+  filter: drop-shadow(0px 0px 2px #000000);
+}
+
+body.dark-mode {
+  background: black;
+  color: white;
+  transition: 0.2s;
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: $darkmode-background;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #292929;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #3b3b3b;
+  }
+
+  &::-webkit-scrollbar-corner {
+    background: $darkmode-background;
+  }
+
+  .navbar {
+    background: $darkmode-background;
+    box-shadow: 0px 4px 5px #000000a2;
+    transition: 0.2s;
+  }
+
+  #content {
+    background: $darkmode-background;
+    transition: background 0.2s;
+    .nav-links {
+      a {
+        transition: 0.2s;
+        color: white;
+
+        &:focus {
+          color: #ffffff8a;
+        }
+      }
+
+      #focused-link {
+        color: #ffffff8a;
+      }
+    }
+  }
+}
+/*theme switcher end*/
+
+/*Footer start*/
+.footer {
+  display: block;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  margin-top: -4px;
+  width: 100%;
+  height: 50vh;
+  background-color: #292929;
+}
+/*Footer end*/
+
+/*media queries*/
+
+@supports not (backdrop-filter: blur()) {
+  .navbar {
+    background: #e4e4e4;
+  }
+
+  .nav {
+    #content {
+      background: #e4e4e4;
+    }
+
+    #blur {
+      background: #00000000;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #theme-switch {
+    width: 30px;
+  }
+
+  .navbar {
+    #headline {
+      font-size: 1.5rem;
+    }
+
+    #logo {
+      width: 60px;
+    }
+  }
+
+  .nav {
+    #content {
+      width: 40%;
+      flex-direction: column;
+    }
+
+    #blur {
+      display: none;
+    }
+  }
+
+  .nav-links-cont {
+    width: 50%;
+
+    .nav-links {
+      margin-right: 80%;
+      margin-right: 50px;
+
+      a {
+        font-size: 22px !important;
+        margin-left: 15px;
+      }
+
+      div {
+        svg {
+          width: 22px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,418 @@
+/*
+  @license Copyright 2020, OmarZaghlool. All rights reserved.
+*/
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: #161616;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: white;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffffd8;
+}
+
+body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  overflow: hidden;
+  -webkit-animation: scroll 1s ease 3.5s forwards;
+          animation: scroll 1s ease 3.5s forwards;
+}
+
+body .navbar {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+/*intro text start*/
+.intro-text-cont {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background: #28253c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-animation: end 1s ease 3.5s forwards;
+          animation: end 1s ease 3.5s forwards;
+  z-index: 1001;
+}
+
+.intro-text-cont svg {
+  width: 80%;
+}
+
+@-webkit-keyframes line-anim {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes line-anim {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@-webkit-keyframes fill {
+  from {
+    fill: transparent;
+  }
+  to {
+    fill: #c4c4c4;
+  }
+}
+
+@keyframes fill {
+  from {
+    fill: transparent;
+  }
+  to {
+    fill: #c4c4c4;
+  }
+}
+
+@-webkit-keyframes end {
+  from {
+    opacity: 1;
+    display: block;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes end {
+  from {
+    opacity: 1;
+    display: block;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@-webkit-keyframes scroll {
+  from {
+    overflow: hidden;
+  }
+  to {
+    overflow: unset;
+  }
+}
+
+@keyframes scroll {
+  from {
+    overflow: hidden;
+  }
+  to {
+    overflow: unset;
+  }
+}
+
+/*intro text end*/
+/*navbar start*/
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10vh;
+  padding-left: 13px;
+  padding-right: 13px;
+  background-color: #ffffffd8;
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+  -webkit-box-shadow: 0px 4px 5px #17171733;
+          box-shadow: 0px 4px 5px #17171733;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 900;
+}
+
+.navbar #logo {
+  width: 55px;
+}
+
+.navbar #headline {
+  font-size: 2rem;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 500;
+}
+
+.navbar #menu {
+  cursor: pointer;
+  width: 42px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/*navbar side menu*/
+.nav {
+  position: fixed;
+  top: 10%;
+  left: 0%;
+  height: 90vh;
+  width: 100%;
+  z-index: 899;
+  display: none;
+}
+
+.nav #content {
+  position: absolute;
+  left: 100%;
+  width: 40%;
+  height: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+  background-color: #ffffffd8;
+  -webkit-transition: background 0.2s;
+  transition: background 0.2s;
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav #content::-webkit-scrollbar {
+  display: none;
+}
+
+.nav #content .nav-links-cont {
+  width: 40%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav #content .nav-links {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.nav #content .nav-links a {
+  width: 50%;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  font-family: "Titillium Web", sans-serif;
+  font-size: 32px;
+}
+
+.nav #content .nav-links a:focus {
+  color: #0000006c;
+}
+
+.nav #content .nav-links #focused-link {
+  color: #0000006c;
+}
+
+.nav #blur {
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.01);
+  display: block;
+}
+
+/*navbar end*/
+/*theme switcher*/
+#theme-switch {
+  cursor: pointer;
+  position: fixed;
+  bottom: 3.5vh;
+  left: 15px;
+  width: 2.8%;
+  -webkit-tap-highlight-color: transparent;
+  z-index: 1000;
+  -webkit-filter: drop-shadow(0px 0px 2px #000000);
+          filter: drop-shadow(0px 0px 2px #000000);
+}
+
+body.dark-mode {
+  background: black;
+  color: white;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+body.dark-mode::-webkit-scrollbar-track {
+  background: #161616;
+}
+
+body.dark-mode::-webkit-scrollbar-thumb {
+  background: #292929;
+}
+
+body.dark-mode::-webkit-scrollbar-thumb:hover {
+  background: #3b3b3b;
+}
+
+body.dark-mode::-webkit-scrollbar-corner {
+  background: #161616;
+}
+
+body.dark-mode .navbar {
+  background: #161616;
+  -webkit-box-shadow: 0px 4px 5px #000000a2;
+          box-shadow: 0px 4px 5px #000000a2;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+body.dark-mode #content {
+  background: #161616;
+  -webkit-transition: background 0.2s;
+  transition: background 0.2s;
+}
+
+body.dark-mode #content .nav-links a {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  color: white;
+}
+
+body.dark-mode #content .nav-links a:focus {
+  color: #ffffff8a;
+}
+
+body.dark-mode #content .nav-links #focused-link {
+  color: #ffffff8a;
+}
+
+/*theme switcher end*/
+/*Footer start*/
+.footer {
+  display: block;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  margin-top: -4px;
+  width: 100%;
+  height: 50vh;
+  background-color: #292929;
+}
+
+/*Footer end*/
+/*media queries*/
+@supports not ((-webkit-backdrop-filter: blur()) or (backdrop-filter: blur())) {
+  .navbar {
+    background: #e4e4e4;
+  }
+  .nav #content {
+    background: #e4e4e4;
+  }
+  .nav #blur {
+    background: #00000000;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #theme-switch {
+    width: 30px;
+  }
+  .navbar #headline {
+    font-size: 1.5rem;
+  }
+  .navbar #logo {
+    width: 60px;
+  }
+  .nav #content {
+    width: 40%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .nav #blur {
+    display: none;
+  }
+  .nav-links-cont {
+    width: 50%;
+  }
+  .nav-links-cont .nav-links {
+    margin-right: 80%;
+    margin-right: 50px;
+  }
+  .nav-links-cont .nav-links a {
+    font-size: 22px !important;
+    margin-left: 15px;
+  }
+  .nav-links-cont .nav-links div svg {
+    width: 22px;
+  }
+}
+/*# sourceMappingURL=style.css.map */
